@@ -1,0 +1,56 @@
+---
+swagger: "2.0"
+info:
+  description: "A very simple API for demonstrating the use of API specifications\
+    \ defined according to Swagger 2.0"
+  version: "1.0.0"
+  title: "Riddler"
+basePath: "/api/v1"
+schemes:
+- "http"
+produces:
+- "application/json"
+paths:
+  /:
+    get:
+      tags:
+      - "riddles"
+      summary: "An endpoint that returns a riddle"
+      description: "Call this endpoint via an HTTP response using the method, GET.\
+        \ You'll get back a riddle question with the associated answer."
+      operationId: "getRiddle"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/riddle"
+        400:
+          description: "Response when resource is not found"
+          schema:
+            $ref: "#/definitions/error"
+        500:
+          description: "Response when an internal system error is found"
+          schema:
+            $ref: "#/definitions/error"
+        default:
+          description: "The default return for the GET method"
+          schema:
+            $ref: "#/definitions/riddle"
+      security: []
+      x-swagger-router-controller: "Riddles"
+    x-swagger-router-controller: "riddlerController"
+definitions:
+  riddle:
+    properties:
+      question:
+        type: "string"
+      answer:
+        type: "string"
+    description: "Provides a riddle question and answer."
+  error:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+    description: "General error response"

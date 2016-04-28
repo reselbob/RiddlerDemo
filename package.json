@@ -1,0 +1,16 @@
+{
+  "name": "riddler",
+  "version": "1.0.0",
+  "description": "A very simple API for demonstrating the use of API specifications defined according to Swagger 2.0",
+  "main": "index.js",
+  "keywords": [
+    "swagger"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "swagger-tools": "0.9.*"
+  }
+}
